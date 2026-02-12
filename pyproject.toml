@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "zylos_cli_tool"
+version = "1.0.0"
+description = "A command-line tool for code generation and explanation"
+dependencies = ["questionary"]
+
+[project.scripts]
+zylos-generate = "cli:code_generation"
+zylos-explain = "cli:code_explanation"
+zylos-register-base = "cli:register_base"
+zylos-config = "cli:config"
+
