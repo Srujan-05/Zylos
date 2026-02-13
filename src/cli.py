@@ -55,9 +55,10 @@ def config():
         print("Configuration file not found.")
         return
     print(f"Zylos: Saving configuration from: {path}...")
-    # configuration loading logic here
-    result, configurations = get_config(path)
+    result, configurations = get_config(path) # Loading the configurations from the specified path
     if result:
+        os.putenv("ZYLOS_CONFIG_PATH", path) # Set the environment variable with the configuration file path
+        # os.putenv("ZYLOS_CONFIG", json.dumps(configurations)) # Set the environment variable with the loaded configurations
         print("Zylos: Configuration saved successfully!!!")
     else:
         print("Zylos: Configuration saving failed...")
