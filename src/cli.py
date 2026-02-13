@@ -2,7 +2,6 @@ import questionary
 import os
 import json
 
-x = 10
 
 def code_generation():
     prompt = ""
@@ -47,7 +46,6 @@ def register_code_base():
         print("Zylos: Code base registration failed...")
 
 def config():
-    print(x)
     path = questionary.text("Enter the path to your configuration (zylos.json) file:").ask()
     if path == "":
         path = "zylos.json" # Set default configuration file name if no path is provided
@@ -76,5 +74,16 @@ def get_config(path=None):
             print(f"Zylos: An error occurred while loading configurations: {e}")
             return False, {}
     else:
-        pass
+        path = os.getenv("ZYLOS_CONFIG_PATH")
+        if path and os.path.exists(path) and os.path.isfile(path) and os.path.basename(path) == "zylos.json":
+            try:
+                with open(path, 'r') as file:
+                    configs = json.load(file)
+                    return True, configs
+            except FileNotFoundError:
+                print("Zylos: Configurations File Not Found...")
+                return False, {}
+            except Exception as e:
+                print(f"Zylos: An error occurred while loading configurations: {e}")
+                return False, {}
     return False, {} # Replace with actual configuration loading logic and return the configurations as a dictionary
