@@ -10,5 +10,22 @@
     "retry_delay": 1000
   },
   "system_instructions": "<enter desired system instructions here>",
-
+  "code_base_settings": {
+    "coding_langs": ["python", "javascript", "java", "c++", "ruby", "go", "php", "swift"],
+    "default_coding_lang": "python",
+    "include_comments": true,
+    "include_docstrings": false,
+    "include_if_main": true,
+    "include_type_hints": false,
+    "include_error_handling": true,
+    "include_logging": false
+  },
+  "documentation_settings": {
+    "include_code_examples": false,
+    "doc_format": "markdown"
+  },
+  "security_settings": {
+    "git_ignore": true,
+    "include_requirements": true
+  }
 }
