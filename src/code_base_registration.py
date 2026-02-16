@@ -1,0 +1,2 @@
+# Have to implement Vector DB storing the codes. Still searching for a the one to use and reading about
+# it. For now, just storing the code in a dictionary with the file path as the key and the code as the value.
